@@ -19,7 +19,8 @@ func TestHello(t *testing.T) {
 		{"No name parameter", "GET", "/hello", "hello", http.StatusOK},
 		{"Empty name parameter", "GET", "/hello?name=", "Missing name parameter!", http.StatusBadRequest},
 		{"Invalid method", "PUT", "/hello", "Only get method is allowed!", http.StatusMethodNotAllowed},
-		{"Success Case", "GET", "/hello?name=Srijan", "Hello Srijan", http.StatusOK},
+		{"Success Case", "GET", "/hello?name=Srijan", "hello Srijan", http.StatusOK},
+		{"multiple name parameter", "GET", "/hello?name=Srijan&name=Shubham", "hello Srijan", http.StatusOK},
 	}
 
 	for i, tc := range cases {
@@ -56,7 +57,8 @@ func BenchmarkHello(b *testing.B) {
 		{"No name parameter", "GET", "/hello", "hello", http.StatusOK},
 		{"Empty name parameter", "GET", "/hello?name=", "Missing name parameter!", http.StatusBadRequest},
 		{"Invalid method", "PUT", "/hello", "Only get method is allowed!", http.StatusMethodNotAllowed},
-		{"Success Case", "GET", "/hello?name=Srijan", "Hello Srijan", http.StatusOK},
+		{"Success Case", "GET", "/hello?name=Srijan", "hello Srijan", http.StatusOK},
+		{"multiple name parameter", "GET", "/hello?name=Srijan&name=Shubham", "hello Srijan", http.StatusOK},
 	}
 
 	for _, tc := range cases {

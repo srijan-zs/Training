@@ -25,7 +25,7 @@ func Hello(w http.ResponseWriter, req *http.Request) {
 		}
 
 		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte("Hello " + name))
+		_, _ = w.Write([]byte("hello " + name))
 
 		return
 	}
